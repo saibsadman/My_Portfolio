@@ -1,0 +1,239 @@
+.contact-section {
+  position: relative;
+}
+
+.contact-terminal {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.terminal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.35rem;
+  border-bottom: 1px solid rgba(120, 150, 220, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.terminal-head p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.terminal-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-dots span:nth-child(1) {
+  background: #ff5f57;
+}
+.terminal-dots span:nth-child(2) {
+  background: #febc2e;
+}
+.terminal-dots span:nth-child(3) {
+  background: #28c840;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.contact-info,
+.contact-form {
+  padding: 2rem;
+}
+
+.contact-info {
+  border-right: 1px solid rgba(120, 150, 220, 0.12);
+}
+
+.contact-info h3 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.contact-copy {
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 1.3rem;
+}
+
+.availability-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.78rem 0.95rem;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 245, 212, 0.18);
+  background: rgba(0, 245, 212, 0.05);
+  color: var(--text-soft);
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  color: var(--text-main);
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(130, 150, 210, 0.12);
+  transition: all 0.25s ease;
+}
+
+.social-link strong {
+  display: block;
+  font-size: 0.96rem;
+}
+
+.social-link span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.social-link:hover {
+  color: var(--primary);
+  background: rgba(0, 245, 212, 0.05);
+  border-color: rgba(0, 245, 212, 0.2);
+  transform: translateX(6px);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1rem;
+  background: rgba(4, 8, 18, 0.9);
+  border: 1px solid rgba(130, 150, 210, 0.14);
+  border-radius: 14px;
+  color: var(--text-main);
+  transition: all 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(0, 245, 212, 0.28);
+  box-shadow: 0 0 0 4px rgba(0, 245, 212, 0.08);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 2.2rem;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 992px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    border-right: none;
+    border-bottom: 1px solid rgba(120, 150, 220, 0.12);
+  }
+}
+
+
+.success-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.success-popup {
+  position: relative;
+  width: min(420px, 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.success-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.success-popup-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.18);
+}
+
+.success-popup h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.success-popup p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}

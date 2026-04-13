@@ -1,0 +1,109 @@
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.about-text-block {
+  margin-bottom: 1.8rem;
+}
+
+.about-text-block p {
+  max-width: 1020px;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.education-item {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(130, 150, 210, 0.12);
+}
+
+.education-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.education-item h3 {
+  font-size: 1.12rem;
+  line-height: 1.35;
+  margin-bottom: 0.3rem;
+}
+
+.education-degree {
+  color: var(--text-soft);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  line-height: 1.6;
+}
+
+.education-item span {
+  color: var(--text-muted);
+  line-height: 1.7;
+  display: block;
+}
+.about-text {
+  padding: 2.5rem;
+  border-radius: 16px;
+  font-size: 1.125rem;
+  color: var(--text-muted);
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.about-card {
+  padding: 2rem;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px var(--primary);
+}
+
+.card-icon {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 255, 204, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 204, 0.2);
+}
+
+.about-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.about-card p {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.about-card span {
+  font-size: 0.85rem;
+}

@@ -1,16 +1,117 @@
-# React + Vite
+# ⚡ Saib Sadman Bari — Futuristic Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **cyberpunk-inspired portfolio website** built to showcase my work, skills, and project case studies as an aspiring **Frontend & Full-Stack Developer**.
 
-Currently, two official plugins are available:
+This portfolio is designed with a strong focus on:
+- futuristic visual design
+- smooth user experience
+- project storytelling
+- responsive layout
+- modern frontend development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌌 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio is more than a personal website — it is a curated digital space where I present my technical identity, featured projects, and development direction.
 
-## Expanding the ESLint configuration
+The design follows a **futuristic / cyberpunk** aesthetic with:
+- glowing neon accents
+- dark grid-based background
+- glassmorphism-inspired UI panels
+- animated hero section
+- interactive project pages
+- fullscreen screenshot gallery
+- modern contact interface
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Features
+
+- **Futuristic Hero Section**
+  - animated typewriter introduction
+  - bold personal branding
+  - cyberpunk-inspired visual core
+
+- **About Section**
+  - concise developer profile
+  - education and background
+  - focus areas and technical direction
+
+- **Projects Showcase**
+  - featured project cards
+  - dedicated project detail pages
+  - GitHub and live/demo links
+  - portfolio-focused project summaries
+
+- **Project Detail Pages**
+  - overview, problem, and solution sections
+  - tech stack highlights
+  - fullscreen screenshot popup gallery
+  - auto/manual screenshot navigation
+
+- **Skills Section**
+  - redesigned futuristic stack presentation
+  - modular technical categories
+  - visually distinct system-style layout
+
+- **Contact Section**
+  - direct email, GitHub, and LinkedIn links
+  - working contact form integration with Formspree
+  - success popup after submission
+
+- **Responsive Design**
+  - optimized for desktop and mobile devices
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React**
+- **Vite**
+- **JavaScript**
+- **CSS3**
+
+### Libraries / Tools
+- **React Router DOM**
+- **Lucide React**
+- **React Icons**
+- **Formspree**
+
+---
+
+## 🎨 Design Style
+
+This portfolio was designed with inspiration from:
+- cyberpunk interfaces
+- futuristic HUD systems
+- modern glassmorphism
+- dark neon dashboards
+- interactive portfolio case studies
+
+The goal was to create a portfolio that feels **memorable, premium, and different from standard template-based websites**.
+
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+  components/
+    About.jsx
+    Contact.jsx
+    Hero.jsx
+    Navbar.jsx
+    ProjectDetails.jsx
+    Projects.jsx
+    Skills.jsx
+  data/
+    projectsData.js
+  assets/
+  index.css
+  App.jsx
+  main.jsx
+
+public/
+  screenshots/

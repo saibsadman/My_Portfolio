@@ -15,6 +15,7 @@ const Navbar = () => {
 
     handleScroll();
     window.addEventListener('scroll', handleScroll);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -36,22 +37,16 @@ const Navbar = () => {
 
   const activeKey = useMemo(() => {
     if (isProjectPage) return 'projects';
-
-    if (location.hash) {
-      return location.hash.replace('#', '');
-    }
-
+    if (location.hash) return location.hash.replace('#', '');
     return '';
-  }, [location.hash, isProjectPage]);
+  }, [isProjectPage, location.hash]);
 
   return (
     <nav className={`navbar ${isScrolled || isProjectPage ? 'scrolled glass' : ''}`}>
       <div className="container nav-content">
-        <Link to="/" className="nav-logo">
+        <Link to="/" className="nav-logo" aria-label="Go to homepage">
           <Code2 className="logo-icon text-primary" size={30} />
-          <span>
-            <span className="text-primary">.SSB</span>
-          </span>
+          <span className="text-primary">.SSB</span>
         </Link>
 
         <div className="nav-links desktop-only">

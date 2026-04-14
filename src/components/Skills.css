@@ -1,7 +1,18 @@
+/* Skills.css */
+
+/* ─── Theme tokens ─── */
+:root {
+  --cyan-rgb: 0, 245, 212;
+  --pink-rgb: 255, 60, 160;
+  --orange-rgb: 255, 140, 40;
+  --violet-rgb: 140, 80, 255;
+}
+
 .skills-section {
   position: relative;
 }
 
+/* ─── Hero row ─── */
 .skills-hero {
   display: flex;
   justify-content: space-between;
@@ -38,38 +49,126 @@
   border-radius: 50%;
   background: var(--primary);
   box-shadow: 0 0 16px var(--primary-glow);
+  animation: pulse-dot 2s ease-in-out infinite;
 }
 
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ─── Grid ─── */
 .skills-terminal-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 
+/* ─── Card base ─── */
 .skill-terminal {
-  border-radius: 26px;
-  overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  transition: transform 0.32s ease, box-shadow 0.32s ease;
+  min-height: 390px;
+  background: linear-gradient(160deg, rgba(8, 14, 28, 0.97) 0%, rgba(3, 6, 16, 0.97) 100%);
 }
 
+.skill-terminal:hover {
+  transform: translateY(-8px);
+}
+
+/* ─── Diagonal colour sweep (the main visual differentiator) ─── */
 .skill-terminal::before {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at top right, rgba(0, 245, 212, 0.08), transparent 22%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 20%);
   pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-.skill-terminal:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0, 245, 212, 0.22);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+/* CYAN — top-left wash + bottom-right accent */
+.theme-cyan {
+  border: 1.5px solid rgba(var(--cyan-rgb), 0.3);
+}
+.theme-cyan::before {
+  background:
+    linear-gradient(135deg, rgba(var(--cyan-rgb), 0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 95%, rgba(var(--cyan-rgb), 0.1) 0%, transparent 45%);
+}
+.theme-cyan:hover {
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.35),
+    0 0 0 1.5px rgba(var(--cyan-rgb), 0.5),
+    0 0 60px rgba(var(--cyan-rgb), 0.12);
 }
 
+/* PINK — vibrant magenta top stripe */
+.theme-pink {
+  border: 1.5px solid rgba(var(--pink-rgb), 0.32);
+}
+.theme-pink::before {
+  background:
+    linear-gradient(135deg, rgba(var(--pink-rgb), 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 95%, rgba(var(--pink-rgb), 0.1) 0%, transparent 45%);
+}
+.theme-pink:hover {
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.35),
+    0 0 0 1.5px rgba(var(--pink-rgb), 0.5),
+    0 0 60px rgba(var(--pink-rgb), 0.12);
+}
+
+/* ORANGE — warm amber wash */
+.theme-orange {
+  border: 1.5px solid rgba(var(--orange-rgb), 0.3);
+}
+.theme-orange::before {
+  background:
+    linear-gradient(135deg, rgba(var(--orange-rgb), 0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 95%, rgba(var(--orange-rgb), 0.1) 0%, transparent 45%);
+}
+.theme-orange:hover {
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.35),
+    0 0 0 1.5px rgba(var(--orange-rgb), 0.5),
+    0 0 60px rgba(var(--orange-rgb), 0.12);
+}
+
+/* VIOLET — deep purple wash */
+.theme-violet {
+  border: 1.5px solid rgba(var(--violet-rgb), 0.3);
+}
+.theme-violet::before {
+  background:
+    linear-gradient(135deg, rgba(var(--violet-rgb), 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 95%, rgba(var(--violet-rgb), 0.1) 0%, transparent 45%);
+}
+.theme-violet:hover {
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.35),
+    0 0 0 1.5px rgba(var(--violet-rgb), 0.5),
+    0 0 60px rgba(var(--violet-rgb), 0.12);
+}
+
+/* ─── Coloured top-edge accent bar ─── */
+.skill-terminal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 28px 28px 0 0;
+}
+.theme-cyan::after   { background: linear-gradient(90deg, rgba(var(--cyan-rgb),0) 0%, rgba(var(--cyan-rgb),1) 40%, rgba(var(--cyan-rgb),0.4) 100%); }
+.theme-pink::after   { background: linear-gradient(90deg, rgba(var(--pink-rgb),0) 0%, rgba(var(--pink-rgb),1) 40%, rgba(var(--pink-rgb),0.4) 100%); }
+.theme-orange::after { background: linear-gradient(90deg, rgba(var(--orange-rgb),0) 0%, rgba(var(--orange-rgb),1) 40%, rgba(var(--orange-rgb),0.4) 100%); }
+.theme-violet::after { background: linear-gradient(90deg, rgba(var(--violet-rgb),0) 0%, rgba(var(--violet-rgb),1) 40%, rgba(var(--violet-rgb),0.4) 100%); }
+
+/* ─── Terminal header bar ─── */
 .skill-terminal-head {
   position: relative;
   z-index: 2;
@@ -77,9 +176,9 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 0.95rem 1.2rem;
-  border-bottom: 1px solid rgba(130, 150, 210, 0.12);
-  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(130, 150, 210, 0.1);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .terminal-lights {
@@ -92,55 +191,78 @@
   height: 10px;
   border-radius: 50%;
 }
-
-.terminal-lights span:nth-child(1) {
-  background: #ff5f57;
-}
-
-.terminal-lights span:nth-child(2) {
-  background: #febc2e;
-}
-
-.terminal-lights span:nth-child(3) {
-  background: #28c840;
-}
+.terminal-lights span:nth-child(1) { background: #ff5f57; }
+.terminal-lights span:nth-child(2) { background: #febc2e; }
+.terminal-lights span:nth-child(3) { background: #28c840; }
 
 .terminal-id {
-  color: var(--accent);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
+.theme-cyan   .terminal-id { color: rgb(var(--cyan-rgb)); }
+.theme-pink   .terminal-id { color: rgb(var(--pink-rgb)); }
+.theme-orange .terminal-id { color: rgb(var(--orange-rgb)); }
+.theme-violet .terminal-id { color: rgb(var(--violet-rgb)); }
 
+/* ─── Card body ─── */
 .skill-terminal-body {
   position: relative;
   z-index: 2;
-  padding: 1.45rem;
+  padding: 1.5rem;
 }
 
 .skill-terminal-top {
   display: flex;
   gap: 1rem;
-  align-items: flex-start;
-  margin-bottom: 1rem;
+  align-items: center;
+  margin-bottom: 1.4rem;
 }
 
+/* ─── Icon box — coloured per theme ─── */
 .skill-terminal-icon {
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
   display: grid;
   place-items: center;
-  background: rgba(0, 245, 212, 0.05);
-  border: 1px solid rgba(0, 245, 212, 0.14);
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.skill-terminal:hover .skill-terminal-icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.theme-cyan   .skill-terminal-icon {
+  background: rgba(var(--cyan-rgb), 0.14);
+  border: 1.5px solid rgba(var(--cyan-rgb), 0.35);
+  color: rgb(var(--cyan-rgb));
+  box-shadow: 0 0 24px rgba(var(--cyan-rgb), 0.15);
+}
+.theme-pink   .skill-terminal-icon {
+  background: rgba(var(--pink-rgb), 0.14);
+  border: 1.5px solid rgba(var(--pink-rgb), 0.35);
+  color: rgb(var(--pink-rgb));
+  box-shadow: 0 0 24px rgba(var(--pink-rgb), 0.15);
+}
+.theme-orange .skill-terminal-icon {
+  background: rgba(var(--orange-rgb), 0.14);
+  border: 1.5px solid rgba(var(--orange-rgb), 0.35);
+  color: rgb(var(--orange-rgb));
+  box-shadow: 0 0 24px rgba(var(--orange-rgb), 0.15);
+}
+.theme-violet .skill-terminal-icon {
+  background: rgba(var(--violet-rgb), 0.14);
+  border: 1.5px solid rgba(var(--violet-rgb), 0.35);
+  color: rgb(var(--violet-rgb));
+  box-shadow: 0 0 24px rgba(var(--violet-rgb), 0.15);
 }
 
 .skill-terminal-title-wrap h3 {
-  font-size: 1.4rem;
-  line-height: 1.15;
-  margin-bottom: 0.45rem;
+  font-size: 1.65rem;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
   color: var(--text-main);
 }
 
@@ -152,52 +274,117 @@
 }
 
 .prompt {
-  color: var(--primary);
   margin-right: 0.25rem;
 }
+.theme-cyan   .prompt { color: rgb(var(--cyan-rgb)); }
+.theme-pink   .prompt { color: rgb(var(--pink-rgb)); }
+.theme-orange .prompt { color: rgb(var(--orange-rgb)); }
+.theme-violet .prompt { color: rgb(var(--violet-rgb)); }
 
-.skill-terminal-summary {
-  color: var(--text-muted);
-  line-height: 1.8;
-  margin-bottom: 1.2rem;
-}
-
+/* ─── Stack label ─── */
 .stack-label-row {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.85rem;
 }
-
 .stack-label {
   display: inline-block;
-  font-size: 0.74rem;
-  color: var(--accent);
-  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  font-weight: 800;
 }
+.theme-cyan   .stack-label { color: rgb(var(--cyan-rgb)); }
+.theme-pink   .stack-label { color: rgb(var(--pink-rgb)); }
+.theme-orange .stack-label { color: rgb(var(--orange-rgb)); }
+.theme-violet .stack-label { color: rgb(var(--violet-rgb)); }
 
+/* ─── Skill chips — the hero element ─── */
 .stack-chip-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
 }
 
 .stack-chip {
-  padding: 0.72rem 0.95rem;
-  border-radius: 12px;
-  border: 1px solid rgba(130, 150, 210, 0.14);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-soft);
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: all 0.25s ease;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  cursor: default;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
-.stack-chip:hover {
-  color: var(--primary);
-  border-color: rgba(0, 245, 212, 0.22);
-  background: rgba(0, 245, 212, 0.05);
-  transform: translateY(-2px);
+/* Cyan chips — filled teal */
+.theme-cyan .stack-chip {
+  background: rgba(var(--cyan-rgb), 0.18);
+  border: 1.5px solid rgba(var(--cyan-rgb), 0.5);
+  color: rgb(var(--cyan-rgb));
+  box-shadow: 0 0 14px rgba(var(--cyan-rgb), 0.18), inset 0 1px 0 rgba(var(--cyan-rgb), 0.25);
+  text-shadow: 0 0 12px rgba(var(--cyan-rgb), 0.6);
+}
+.theme-cyan .stack-chip:hover {
+  background: rgba(var(--cyan-rgb), 0.32);
+  box-shadow: 0 0 28px rgba(var(--cyan-rgb), 0.35), inset 0 1px 0 rgba(var(--cyan-rgb), 0.4);
+  transform: translateY(-3px) scale(1.06);
+  filter: brightness(1.15);
 }
 
+/* Pink chips — vibrant magenta */
+.theme-pink .stack-chip {
+  background: rgba(var(--pink-rgb), 0.18);
+  border: 1.5px solid rgba(var(--pink-rgb), 0.5);
+  color: rgb(var(--pink-rgb));
+  box-shadow: 0 0 14px rgba(var(--pink-rgb), 0.18), inset 0 1px 0 rgba(var(--pink-rgb), 0.25);
+  text-shadow: 0 0 12px rgba(var(--pink-rgb), 0.6);
+}
+.theme-pink .stack-chip:hover {
+  background: rgba(var(--pink-rgb), 0.32);
+  box-shadow: 0 0 28px rgba(var(--pink-rgb), 0.35), inset 0 1px 0 rgba(var(--pink-rgb), 0.4);
+  transform: translateY(-3px) scale(1.06);
+  filter: brightness(1.15);
+}
+
+/* Orange chips — warm amber */
+.theme-orange .stack-chip {
+  background: rgba(var(--orange-rgb), 0.18);
+  border: 1.5px solid rgba(var(--orange-rgb), 0.5);
+  color: rgb(var(--orange-rgb));
+  box-shadow: 0 0 14px rgba(var(--orange-rgb), 0.18), inset 0 1px 0 rgba(var(--orange-rgb), 0.25);
+  text-shadow: 0 0 12px rgba(var(--orange-rgb), 0.5);
+}
+.theme-orange .stack-chip:hover {
+  background: rgba(var(--orange-rgb), 0.32);
+  box-shadow: 0 0 28px rgba(var(--orange-rgb), 0.35), inset 0 1px 0 rgba(var(--orange-rgb), 0.4);
+  transform: translateY(-3px) scale(1.06);
+  filter: brightness(1.15);
+}
+
+/* Violet chips — electric purple */
+.theme-violet .stack-chip {
+  background: rgba(var(--violet-rgb), 0.18);
+  border: 1.5px solid rgba(var(--violet-rgb), 0.5);
+  color: rgb(var(--violet-rgb));
+  box-shadow: 0 0 14px rgba(var(--violet-rgb), 0.18), inset 0 1px 0 rgba(var(--violet-rgb), 0.25);
+  text-shadow: 0 0 12px rgba(var(--violet-rgb), 0.6);
+}
+.theme-violet .stack-chip:hover {
+  background: rgba(var(--violet-rgb), 0.32);
+  box-shadow: 0 0 28px rgba(var(--violet-rgb), 0.35), inset 0 1px 0 rgba(var(--violet-rgb), 0.4);
+  transform: translateY(-3px) scale(1.06);
+  filter: brightness(1.15);
+}
+
+/* ─── Summary text ─── */
+.skill-terminal-summary {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+  max-width: 92%;
+}
+
+/* ─── Side panels ─── */
 .skills-side-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -215,7 +402,7 @@
 
 .skills-side-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 245, 212, 0.2);
+  border-color: rgba(var(--cyan-rgb), 0.2);
 }
 
 .skills-side-icon {
@@ -224,9 +411,10 @@
   border-radius: 14px;
   display: grid;
   place-items: center;
-  background: rgba(0, 245, 212, 0.05);
-  border: 1px solid rgba(0, 245, 212, 0.14);
+  background: rgba(var(--cyan-rgb), 0.05);
+  border: 1px solid rgba(var(--cyan-rgb), 0.14);
   flex-shrink: 0;
+  color: var(--primary);
 }
 
 .skills-side-card h4 {
@@ -241,6 +429,7 @@
   font-size: 0.94rem;
 }
 
+/* ─── Responsive ─── */
 @media (max-width: 992px) {
   .skills-terminal-grid,
   .skills-side-grid {
@@ -251,14 +440,20 @@
 @media (max-width: 640px) {
   .skill-terminal-top {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .skill-terminal-icon {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
   }
 
   .skill-terminal-title-wrap h3 {
-    font-size: 1.22rem;
+    font-size: 1.28rem;
+  }
+
+  .stack-chip {
+    font-size: 0.9rem;
+    padding: 0.55rem 0.95rem;
   }
 }

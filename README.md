@@ -1,6 +1,6 @@
 # ⚡ Saib Sadman Bari — Futuristic Developer Portfolio
 
-A modern **cyberpunk-inspired portfolio website** built to showcase my work, skills, and project case studies as an aspiring **Frontend & Full-Stack Developer**.
+A modern **Personal portfolio website** built to showcase my work, skills, and project case studies as an aspiring **Frontend & Full-Stack Developer**.
 
 This portfolio is designed with a strong focus on:
 - futuristic visual design
@@ -15,23 +15,17 @@ This portfolio is designed with a strong focus on:
 
 This portfolio is more than a personal website — it is a curated digital space where I present my technical identity, featured projects, and development direction.
 
-The design follows a **futuristic / cyberpunk** aesthetic with:
-- glowing neon accents
+The design follows with:
 - dark grid-based background
 - glassmorphism-inspired UI panels
 - animated hero section
 - interactive project pages
 - fullscreen screenshot gallery
-- modern contact interface
+- contact interface
 
 ---
 
 ## 🚀 Features
-
-- **Futuristic Hero Section**
-  - animated typewriter introduction
-  - bold personal branding
-  - cyberpunk-inspired visual core
 
 - **About Section**
   - concise developer profile
@@ -51,7 +45,7 @@ The design follows a **futuristic / cyberpunk** aesthetic with:
   - auto/manual screenshot navigation
 
 - **Skills Section**
-  - redesigned futuristic stack presentation
+  - redesigned stack presentation
   - modular technical categories
   - visually distinct system-style layout
 
@@ -81,16 +75,9 @@ The design follows a **futuristic / cyberpunk** aesthetic with:
 
 ---
 
-## 🎨 Design Style
 
-This portfolio was designed with inspiration from:
-- cyberpunk interfaces
-- futuristic HUD systems
-- modern glassmorphism
-- dark neon dashboards
-- interactive portfolio case studies
 
-The goal was to create a portfolio that feels **memorable, premium, and different from standard template-based websites**.
+erent from standard template-based websites**.
 
 ---
 

@@ -26,49 +26,66 @@ function ScrollToTopAndHash() {
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace('#', '');
-      const el = document.getElementById(id);
 
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    } else {
-      window.scrollTo(0, 0);
+      const scrollToHash = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+
+      const timer = setTimeout(scrollToHash, 120);
+      return () => clearTimeout(timer);
     }
-  }, [location]);
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [location.pathname, location.hash]);
+
+  return null;
+}
+
+function RevealObserver() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const revealElements = document.querySelectorAll('.reveal');
+
+    if (!revealElements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.12,
+      }
+    );
+
+    revealElements.forEach((el) => {
+      el.classList.remove('active');
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [location.pathname, location.hash]);
 
   return null;
 }
 
 function App() {
-  useEffect(() => {
-    const observerCallback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15,
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <ScrollToTopAndHash />
+      <RevealObserver />
       <Navbar />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/:slug" element={<ProjectDetails />} />

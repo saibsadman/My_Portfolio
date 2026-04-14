@@ -1,3 +1,5 @@
+// Skills.jsx
+
 import React from 'react';
 import {
   Braces,
@@ -16,38 +18,42 @@ const Skills = () => {
     {
       id: 'SYS-01',
       title: 'Core Languages',
-      icon: <Braces className="text-primary" size={22} />,
+      icon: <Braces size={24} />,
       command: 'load --runtime core-languages',
       summary:
-        'Problem solving, algorithmic thinking, implementation, and programming fundamentals.',
+        'Programming fundamentals, problem solving, algorithmic thinking, and implementation.',
       stack: ['C', 'C++', 'JavaScript', 'TypeScript', 'Python', 'Java'],
+      theme: 'cyan',
     },
     {
       id: 'SYS-02',
       title: 'Frontend Systems',
-      icon: <Layers3 className="text-primary" size={22} />,
+      icon: <Layers3 size={24} />,
       command: 'init --module frontend-ui',
       summary:
-        'Responsive interfaces, component-driven architecture, motion, and modern web UX.',
+        'Responsive interfaces, component architecture, motion, and modern web experience.',
       stack: ['React', 'Vite', 'Next.js', 'HTML', 'CSS', 'Tailwind', 'Framer Motion'],
+      theme: 'pink',
     },
     {
       id: 'SYS-03',
       title: 'Backend & APIs',
-      icon: <Server className="text-primary" size={22} />,
+      icon: <Server size={24} />,
       command: 'boot --service backend-api',
       summary:
-        'Server-side logic, routing, authentication workflows, REST design, and application structure.',
-      stack: ['Node.js', 'Express', 'REST APIs', 'JWT', 'Auth Flow', 'Middleware'],
+        'Server-side logic, routing, auth workflows, REST design, and application structure.',
+      stack: ['Node.js', 'Express', 'Django', 'REST APIs', 'JWT', 'Auth Flow', 'Middleware'],
+      theme: 'orange',
     },
     {
       id: 'SYS-04',
       title: 'Data & Infrastructure',
-      icon: <Database className="text-primary" size={22} />,
+      icon: <Database size={24} />,
       command: 'sync --env data-infra',
       summary:
-        'Databases, version control, local environments, container tooling, and engineering workflow.',
+        'Databases, version control, environments, containers, and engineering workflow.',
       stack: ['MySQL', 'PostgreSQL', 'SQLite', 'Git', 'GitHub', 'Docker'],
+      theme: 'violet',
     },
   ];
 
@@ -81,7 +87,7 @@ const Skills = () => {
           <div>
             <h2 className="heading-lg">Tech Stack Interface</h2>
             <p className="skills-lead">
-              A structured view of the tools, systems, and engineering environments I work with.
+              A structured view of the technologies, systems, and engineering environments I work with.
             </p>
           </div>
 
@@ -95,7 +101,7 @@ const Skills = () => {
           {skillCategories.map((category, idx) => (
             <div
               key={category.id}
-              className={`skill-terminal glass reveal delay-${(idx + 1) * 100}`}
+              className={`skill-terminal theme-${category.theme} glass reveal delay-${(idx + 1) * 100}`}
             >
               <div className="skill-terminal-head">
                 <div className="terminal-lights">
@@ -103,14 +109,12 @@ const Skills = () => {
                   <span></span>
                   <span></span>
                 </div>
-
                 <div className="terminal-id">{category.id}</div>
               </div>
 
               <div className="skill-terminal-body">
                 <div className="skill-terminal-top">
                   <div className="skill-terminal-icon">{category.icon}</div>
-
                   <div className="skill-terminal-title-wrap">
                     <h3>{category.title}</h3>
                     <p className="terminal-command">
@@ -119,10 +123,8 @@ const Skills = () => {
                   </div>
                 </div>
 
-                <p className="skill-terminal-summary">{category.summary}</p>
-
                 <div className="stack-label-row">
-                  <span className="stack-label">Loaded Technologies</span>
+                  <span className="stack-label">Primary Technologies</span>
                 </div>
 
                 <div className="stack-chip-grid">
@@ -132,6 +134,8 @@ const Skills = () => {
                     </span>
                   ))}
                 </div>
+
+                <p className="skill-terminal-summary">{category.summary}</p>
               </div>
             </div>
           ))}
@@ -143,7 +147,7 @@ const Skills = () => {
               key={panel.title}
               className={`skills-side-card glass reveal delay-${idx * 100 + 100}`}
             >
-              <div className="skills-side-icon text-primary">{panel.icon}</div>
+              <div className="skills-side-icon">{panel.icon}</div>
               <div>
                 <h4>{panel.title}</h4>
                 <p>{panel.text}</p>
